@@ -22,6 +22,7 @@ type Passage struct {
 var db *sqlx.DB
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	db, _ = sqlx.Connect("mysql", "my:123456@tcp(127.0.0.1:3307)/test?charset=utf8")
 	db.SetConnMaxLifetime(100)
 	db.SetMaxIdleConns(10)
